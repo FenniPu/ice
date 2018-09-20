@@ -54,8 +54,8 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("0x00000e697a1e963f6ae8288419ffb0d59de9d232bac8efda8c6491d1c31e3139")) //gen block
-    (1, uint256("0x000006673841efc8525afb74a6855871bf71c1d1ab6d93cc9d6a45f43bac87b7")) 
+    (0, uint256("00000780e463f38697e42b7de705e3a012f4e1bbf008d14ba827e4214fbf5213")) //gen block
+    (1, uint256("0x000006673841efc8525afb74a6855871bf71c1d1ab6d93cc9d6a45f43bac87b7"))
     (2, uint256("0x00000d46e354372609f5f6c0cf40c46a2c174899d7eeec64514fa16909ef64c9"))
     (3, uint256("0x0000010f6728ecde4e59649bbc9f24f6eeac182c0b42e5b53b508647f4f30611"))
     (167, uint256("0x00000012ba3beedd544c6bc63a98a1f496a64c2817e56fd8547534c93cc891c6"))
@@ -71,7 +71,7 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1529589600, // * UNIX timestamp of last checkpoint block
+    1537367921, // * UNIX timestamp of last checkpoint block
     1,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     10000        // * estimated number of transactions per day after checkpoint
@@ -127,7 +127,7 @@ public:
         pchMessageStart[1] = 0xb4;
         pchMessageStart[2] = 0xad;
         pchMessageStart[3] = 0xb8;
-        vAlertPubKey = ParseHex("0000088d3ba5ba6e7423fa5cbd6a89e0a9a5348f78d332b44a5cb1a8a7ed2c1eaa335fc8dc4f011cb8241cc0bdafc6ca70c5f5448916e4e6f512bcd746ed57dc50");
+        vAlertPubKey = ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f");
         nDefaultPort = 22618;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Deviant starting difficulty is 1 / 2^12
         //nSubsidyHalvingInterval = 210000;
@@ -143,10 +143,10 @@ public:
         nMaxMoneyOut = 88000000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 500;
+        nLastPOWBlock = 300;
         nModifierUpdateBlock = 999999999;
-        nZerocoinStartHeight = 501;
-        nZerocoinStartTime = 1529589600; // Thursday, June 21, 2018 2:00:00 PM GMT
+        nZerocoinStartHeight = 301;
+        nZerocoinStartTime = 1537358400; // Mittwoch, 19 September, 2018 14:00:00
         nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
         nBlockRecalculateAccumulators = ~1; //Trigger a recalculation of accumulators
         nBlockFirstFraudulent = ~1; //First block that bad serials emerged
@@ -156,7 +156,7 @@ public:
         nBlockZerocoinV2 = 99999999; //!> The block that zerocoin v2 becomes active - roughly Tuesday, May 8, 2018 4:00:00 AM GMT
         nEnforceNewSporkKey = 1529762400; //!> Sporks signed after (GMT):Saturday, June 23, 2018 2:00:00 PM GMT must use the new spork key
         nRejectOldSporkKey = 1529661600; //!> Fully reject old spork key after (GMT):  Friday, June 22, 2018 10:00:00 AM
-        
+
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
          * be spent as it did not originally exist in the database.
@@ -167,7 +167,7 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "Suspected Chinese lasers target US aircraft over Pacific.";
+        const char* pszTimestamp = "Der Macher ist der Lacher. HaHaHa.";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -178,22 +178,19 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1529589600;
+        genesis.nTime = 1537367921;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 419026;
+        genesis.nNonce = 101881; // war vorher 419026
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000e697a1e963f6ae8288419ffb0d59de9d232bac8efda8c6491d1c31e3139"));
-        assert(genesis.hashMerkleRoot == uint256("0x46ef6862b7bc094822eb7b5f4e47a0276baeb7599a284bc4182ad3a163b53c4a"));
-          
-        vSeeds.push_back(CDNSSeedData("seed1.deviantcoin.io", "seed1.deviantcoin.io"));              
-        vSeeds.push_back(CDNSSeedData("seed2.deviantcoin.io", "seed2.deviantcoin.io"));
-        vSeeds.push_back(CDNSSeedData("seed3.deviantcoin.io", "seed3.deviantcoin.io"));           
-	vSeeds.push_back(CDNSSeedData("seed4.deviantcoin.io", "seed4.deviantcoin.io"));           
-	vSeeds.push_back(CDNSSeedData("seed5.deviantcoin.io", "seed5.deviantcoin.io"));           
-	vSeeds.push_back(CDNSSeedData("138.197.146.236", "138.197.146.236"));          
-        vSeeds.push_back(CDNSSeedData("209.97.131.20", "209.97.131.20"));   
-     
+        assert(hashGenesisBlock == uint256("00000780e463f38697e42b7de705e3a012f4e1bbf008d14ba827e4214fbf5213"));
+        assert(genesis.hashMerkleRoot == uint256("2ff46d30905236cb2a57ee593ad6c9862af2deb1d2f16024def16535b9fa9c9f")); // war vorher uint256("0x46ef6862b7bc094822eb7b5f4e47a0276baeb7599a284bc4182ad3a163b53c4a"))
+
+        vSeeds.push_back(CDNSSeedData("172.16.1.44", "172.16.1.44"));
+        vSeeds.push_back(CDNSSeedData("172.16.1.11", "172.16.1.11"));
+        vSeeds.push_back(CDNSSeedData("172.16.1.75", "172.16.1.75"));
+	    vSeeds.push_back(CDNSSeedData("172.16.1.52", "172.16.1.52"));
+
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 90);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 10);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 137);
