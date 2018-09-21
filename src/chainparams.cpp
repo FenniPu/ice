@@ -54,19 +54,13 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256()) //gen block
-    (1, uint256("0x000006673841efc8525afb74a6855871bf71c1d1ab6d93cc9d6a45f43bac87b7"))
-    (2, uint256("0x00000d46e354372609f5f6c0cf40c46a2c174899d7eeec64514fa16909ef64c9"))
-    (3, uint256("0x0000010f6728ecde4e59649bbc9f24f6eeac182c0b42e5b53b508647f4f30611"))
-    (167, uint256("0x00000012ba3beedd544c6bc63a98a1f496a64c2817e56fd8547534c93cc891c6"))
-    (254, uint256("0x0000001468b048b5f3801f107475691e87a546cdb8a2313391ef54979850d8df"))
-    (428, uint256("0x00000040da892adf5afdf02e732e2fa20632947b9a26d994bfc9214a11b56539"))
-    (499, uint256("0x00000030e323683107f1c34f6ce4886cf0dd49d7d5df7de525e061a6bb1da0fb"))
-    (500, uint256("0x0000007e0194c4abd5692f4264825ac9a6a72f0d38d232faec5eecb0c7f72b9a"))
-    (501, uint256("0x6f6f05badd2d9b824749cbee6a732ab46338c563c16162501853a1a2f952f29d"))
-    (1587, uint256("0x24a7001a82608901f47dbd693e0e3e72ba5588c4a476d053ffcb8294a9f32ceb"))
-    (2342, uint256("0x06b972caff65d145d6714d7e9184f03a4e134f46f2dc599ceaa6fc4b293bf85f"))
-    (3110, uint256("0xcc230f6ec71671418af9e75aeed4a9d2671f0a262564b261e013c5e57b34153d"));
+    (0, uint256()) //gen block  // hier einfügen
+//    (50, uint256()) // hier einfügen
+//    (100, uint256()) // hier einfügen
+//    (300, uint256()) // hier einfügen
+//    (301, uint256()) // hier einfügen
+//  (254, uint256("0x0000001468b048b5f3801f107475691e87a546cdb8a2313391ef54979850d8df"))  //  zur ansicht
+//    (500, uint256()); // hier einfügen
 
 
 static const Checkpoints::CCheckpointData data = {
@@ -183,7 +177,7 @@ public:
         genesis.nNonce = 101881; // war vorher 419026
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256());
+        assert(hashGenesisBlock == uint256()); // hier einfügen
         assert(genesis.hashMerkleRoot == uint256("2ff46d30905236cb2a57ee593ad6c9862af2deb1d2f16024def16535b9fa9c9f")); // war vorher uint256("0x46ef6862b7bc094822eb7b5f4e47a0276baeb7599a284bc4182ad3a163b53c4a"))
 
         vSeeds.push_back(CDNSSeedData("172.16.1.44", "172.16.1.44"));
