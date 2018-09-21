@@ -55,22 +55,15 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     (0, uint256("4d252faa34639e64066da0a1fd891d8ea32825689596519e4cd426d49e5b7460")); //gen block  // hier einfügen
-//    (50, uint256()) // hier einfügen
+//    (50, uint256()); // hier einfügen
 //    (100, uint256()) // hier einfügen
 //    (300, uint256()) // hier einfügen
 //    (301, uint256()) // hier einfügen
 //  (254, uint256("0x0000001468b048b5f3801f107475691e87a546cdb8a2313391ef54979850d8df"))  //  zur ansicht
 //    (500, uint256()); // hier einfügen
 
-static const Checkpoints::CCheckpointData data = {};
 
-//static const Checkpoints::CCheckpointData data = {
-//    &mapCheckpoints,
-//    1537516800, // * UNIX timestamp of last checkpoint block
-//    1,    // * total number of transactions between genesis and last checkpoint
-//                //   (the tx=... number in the SetBestChain debug.log lines)
-//    10000        // * estimated number of transactions per day after checkpoint
-//};
+static const Checkpoints::CCheckpointData data = {};
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of(0, uint256("0000014bd7a053eb417c79a53bf206733927fab837ad1a5e06265b21f8d9e9e8"));
@@ -178,8 +171,10 @@ public:
         genesis.nNonce = 1154317; // war vorher 419026
 
         hashGenesisBlock = genesis.GetHash();
+        printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());  // noch entfernen !!!
+        printf("genesis.GethashMerkleRoot = %s\n", genesis.GethashMerkleRoot().ToString().c_str());
         assert(hashGenesisBlock == uint256("4d252faa34639e64066da0a1fd891d8ea32825689596519e4cd426d49e5b7460")); // hier einfügen
-        assert(genesis.hashMerkleRoot == uint256("4d252faa34639e64066da0a1fd891d8ea32825689596519e4cd426d49e5b7460")); // war vorher uint256("0x46ef6862b7bc094822eb7b5f4e47a0276baeb7599a284bc4182ad3a163b53c4a"))
+        assert(genesis.hashMerkleRoot == uint256("0x")); // war vorher uint256("0x46ef6862b7bc094822eb7b5f4e47a0276baeb7599a284bc4182ad3a163b53c4a"))
 
         vSeeds.push_back(CDNSSeedData("172.16.1.44", "172.16.1.44"));
         vSeeds.push_back(CDNSSeedData("172.16.1.11", "172.16.1.11"));
