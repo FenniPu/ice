@@ -174,7 +174,7 @@ public:
         printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());  // noch entfernen !!!
         printf("genesis.GethashMerkleRoot = %s\n", genesis.GetHash().ToString().c_str());
         assert(hashGenesisBlock == uint256("4d252faa34639e64066da0a1fd891d8ea32825689596519e4cd426d49e5b7460")); // hier einfügen
-        assert(genesis.hashMerkleRoot == uint256("90be61a3ee31da45ee898e844cb9dcc8ae5990609f30cc3d3d6ca48bdb7fcfbe")); // war vorher uint256("0x46ef6862b7bc094822eb7b5f4e47a0276baeb7599a284bc4182ad3a163b53c4a"))
+        assert(genesis.hashMerkleRoot == uint256("4d252faa34639e64066da0a1fd891d8ea32825689596519e4cd426d49e5b7460")); // war vorher uint256("0x46ef6862b7bc094822eb7b5f4e47a0276baeb7599a284bc4182ad3a163b53c4a"))
 
         vSeeds.push_back(CDNSSeedData("172.16.1.44", "172.16.1.44"));
         vSeeds.push_back(CDNSSeedData("172.16.1.11", "172.16.1.11"));
