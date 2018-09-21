@@ -54,7 +54,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256()) //gen block  // hier einfügen
+    (0, uint256("000003eecf612f8303d726a414156d2f50c594d1070cb94cabdfe53e9bfb740f")) //gen block  // hier einfügen
 //    (50, uint256()) // hier einfügen
 //    (100, uint256()) // hier einfügen
 //    (300, uint256()) // hier einfügen
@@ -65,7 +65,7 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1537367921, // * UNIX timestamp of last checkpoint block
+    1537516800, // * UNIX timestamp of last checkpoint block
     1,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     10000        // * estimated number of transactions per day after checkpoint
@@ -161,7 +161,7 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "Der Macher ist der Lacher. HaHaHa.";
+        const char* pszTimestamp = "Hunderte Millionen Menschen werden zu 'nutzloser Klasse";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -172,13 +172,13 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1537367921;
+        genesis.nTime = 1537516800;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 101881; // war vorher 419026
+        genesis.nNonce = 1154317; // war vorher 419026
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256()); // hier einfügen
-        assert(genesis.hashMerkleRoot == uint256("2ff46d30905236cb2a57ee593ad6c9862af2deb1d2f16024def16535b9fa9c9f")); // war vorher uint256("0x46ef6862b7bc094822eb7b5f4e47a0276baeb7599a284bc4182ad3a163b53c4a"))
+        assert(hashGenesisBlock == uint256("000003eecf612f8303d726a414156d2f50c594d1070cb94cabdfe53e9bfb740f")); // hier einfügen
+        assert(genesis.hashMerkleRoot == uint256("90be61a3ee31da45ee898e844cb9dcc8ae5990609f30cc3d3d6ca48bdb7fcfbe")); // war vorher uint256("0x46ef6862b7bc094822eb7b5f4e47a0276baeb7599a284bc4182ad3a163b53c4a"))
 
         vSeeds.push_back(CDNSSeedData("172.16.1.44", "172.16.1.44"));
         vSeeds.push_back(CDNSSeedData("172.16.1.11", "172.16.1.11"));
