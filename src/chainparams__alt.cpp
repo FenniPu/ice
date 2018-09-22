@@ -55,36 +55,18 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     (0, uint256("0x4d252faa34639e64066da0a1fd891d8ea32825689596519e4cd426d49e5b7460")); //gen block  // hier einfügen
-//    (50, uint256()) // hier einfügen
-//    (100, uint256()) // hier einfügen
-//    (300, uint256()) // hier einfügen
-//    (301, uint256()) // hier einfügen
-//  (254, uint256("0x0000001468b048b5f3801f107475691e87a546cdb8a2313391ef54979850d8df"))  //  zur ansicht
-//    (500, uint256()); // hier einfügen
 
-static const Checkpoints::CCheckpointData data = {
-    &mapCheckpoints,
-    1537516800, // * UNIX timestamp of last checkpoint block
-    0,    // * total number of transactions between genesis and last checkpoint
-                //   (the tx=... number in the SetBestChain debug.log lines)
-    10000        // * estimated number of transactions per day after checkpoint
-};
+static const Checkpoints::CCheckpointData data = {};
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of(0, uint256("0000014bd7a053eb417c79a53bf206733927fab837ad1a5e06265b21f8d9e9e8"));
-static const Checkpoints::CCheckpointData dataTestnet = {
-    &mapCheckpointsTestnet,
-    1522920805,
-    0,
-    250};
+
+static const Checkpoints::CCheckpointData dataTestnet = {};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
     boost::assign::map_list_of(0, uint256("000007c6a68a4e47f0acdcf0b13d98f410ebd84394be5cb2b2852f93105a1ced"));
-static const Checkpoints::CCheckpointData dataRegtest = {
-    &mapCheckpointsRegtest,
-    1522922005,
-    0,
-    100};
+
+static const Checkpoints::CCheckpointData dataRegtest = {};
 
 libzerocoin::ZerocoinParams* CChainParams::Zerocoin_Params(bool useModulusV1) const
 {
@@ -115,18 +97,11 @@ public:
          * The message start string is designed to be unlikely to occur in normal data.
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
-
-        * pchMessageStart[0] = 0x28;
-        * pchMessageStart[1] = 0xb4;
-        * pchMessageStart[2] = 0xad;
-        * pchMessageStart[3] = 0xb8;
-        */
-
+         */
         pchMessageStart[0] = 0x28;
         pchMessageStart[1] = 0xb4;
         pchMessageStart[2] = 0xad;
         pchMessageStart[3] = 0xb8;
-
         vAlertPubKey = ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f");
         nDefaultPort = 22618;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Deviant starting difficulty is 1 / 2^12
@@ -182,9 +157,14 @@ public:
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 1154317;
 
+    //    printf("genesis.nTime = %u \n", genesis.nTime);
+    //    printf("genesis.nNonce = %u \n", genesis.nNonce);
+    //    printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str()); //first this, then comment this line out and uncomment the one under.
+    //    printf("genesis.hashMerkleRoot = %s \n", genesis.hashMerkleRoot.ToString().c_str()); //improvised. worked for me, to find merkle root
+
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x4d252faa34639e64066da0a1fd891d8ea32825689596519e4cd426d49e5b7460"));
-        assert(genesis.hashMerkleRoot == uint256("0x79669074fe3c38adc9bde2ada1dcb7645151b97e85c4512742ddecd370b24e39"));
+        assert(hashGenesisBlock == uint256("0x4d252faa34639e64066da0a1fd891d8ea32825689596519e4cd426d49e5b7460")); // hier einfügen
+        assert(genesis.hashMerkleRoot == uint256("0x79669074fe3c38adc9bde2ada1dcb7645151b97e85c4512742ddecd370b24e39")); // war vorher uint256("0x46ef6862b7bc094822eb7b5f4e47a0276baeb7599a284bc4182ad3a163b53c4a"))
 
         vSeeds.push_back(CDNSSeedData("172.16.1.44", "172.16.1.44"));
         vSeeds.push_back(CDNSSeedData("172.16.1.11", "172.16.1.11"));
