@@ -65,7 +65,7 @@ static const Checkpoints::CCheckpointData dataTestnet = {};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
     boost::assign::map_list_of(0, uint256("000007c6a68a4e47f0acdcf0b13d98f410ebd84394be5cb2b2852f93105a1ced"));
-    
+
 static const Checkpoints::CCheckpointData dataRegtest = {};
 
 libzerocoin::ZerocoinParams* CChainParams::Zerocoin_Params(bool useModulusV1) const
@@ -121,7 +121,7 @@ public:
         nLastPOWBlock = 300;
         nModifierUpdateBlock = 999999999;
         nZerocoinStartHeight = 301;
-        nZerocoinStartTime = 1537358400; // Mittwoch, 19 September, 2018 14:00:00
+        nZerocoinStartTime = 1537516900; // Mittwoch, 19 September, 2018 14:00:00
         nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
         nBlockRecalculateAccumulators = ~1; //Trigger a recalculation of accumulators
         nBlockFirstFraudulent = ~1; //First block that bad serials emerged
