@@ -60,19 +60,13 @@ static const Checkpoints::CCheckpointData data = {};
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of(0, uint256("0000014bd7a053eb417c79a53bf206733927fab837ad1a5e06265b21f8d9e9e8"));
-static const Checkpoints::CCheckpointData dataTestnet = {
-    &mapCheckpointsTestnet,
-    1522920805,
-    0,
-    250};
+
+static const Checkpoints::CCheckpointData dataTestnet = {};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
     boost::assign::map_list_of(0, uint256("000007c6a68a4e47f0acdcf0b13d98f410ebd84394be5cb2b2852f93105a1ced"));
-static const Checkpoints::CCheckpointData dataRegtest = {
-    &mapCheckpointsRegtest,
-    1522922005,
-    0,
-    100};
+    
+static const Checkpoints::CCheckpointData dataRegtest = {};
 
 libzerocoin::ZerocoinParams* CChainParams::Zerocoin_Params(bool useModulusV1) const
 {
@@ -161,11 +155,10 @@ public:
         genesis.nVersion = 1;
         genesis.nTime = 1537516800;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 1154317; // war vorher 419026
+        genesis.nNonce = 1154317;
 
     //    printf("genesis.nTime = %u \n", genesis.nTime);
     //    printf("genesis.nNonce = %u \n", genesis.nNonce);
-    //    printf("genesis.nVersion = %u \n", genesis.nVersion);
     //    printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str()); //first this, then comment this line out and uncomment the one under.
     //    printf("genesis.hashMerkleRoot = %s \n", genesis.hashMerkleRoot.ToString().c_str()); //improvised. worked for me, to find merkle root
 

@@ -115,11 +115,18 @@ public:
          * The message start string is designed to be unlikely to occur in normal data.
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
-         */
+
+        * pchMessageStart[0] = 0x28;
+        * pchMessageStart[1] = 0xb4;
+        * pchMessageStart[2] = 0xad;
+        * pchMessageStart[3] = 0xb8;
+        */
+
         pchMessageStart[0] = 0x28;
         pchMessageStart[1] = 0xb4;
         pchMessageStart[2] = 0xad;
         pchMessageStart[3] = 0xb8;
+
         vAlertPubKey = ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f");
         nDefaultPort = 22618;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Deviant starting difficulty is 1 / 2^12
