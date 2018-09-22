@@ -5003,8 +5003,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Трябва да зададете masternodeprivkey в конфигурационния файл. Консултирайте се с документацията за повече помощ.</translation>
     </message>
     <message>
-        <source>(22618 could be used only on mainnet)</source>
-        <translation>(22618 може да се ползва само в mainnet)</translation>
+        <source>(33648 could be used only on mainnet)</source>
+        <translation>(33648 може да се ползва само в mainnet)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -5015,8 +5015,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>(по подразбиране: 1)</translation>
     </message>
     <message>
-        <source>(must be 22618 for mainnet)</source>
-        <translation>(трябва да е 22618 за mainnet)</translation>
+        <source>(must be 33648 for mainnet)</source>
+        <translation>(трябва да е 33648 за mainnet)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>

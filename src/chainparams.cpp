@@ -122,13 +122,13 @@ public:
         * pchMessageStart[3] = 0xb8;
         */
 
-        pchMessageStart[0] = 0x28;
-        pchMessageStart[1] = 0xb4;
-        pchMessageStart[2] = 0xad;
-        pchMessageStart[3] = 0xb8;
+        pchMessageStart[0] = 0x29;
+        pchMessageStart[1] = 0xb3;
+        pchMessageStart[2] = 0xda;
+        pchMessageStart[3] = 0xb4;
 
         vAlertPubKey = ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f");
-        nDefaultPort = 22618;
+        nDefaultPort = 33648;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Deviant starting difficulty is 1 / 2^12
         //nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
@@ -182,10 +182,16 @@ public:
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 1154317;
 
+        //    printf("genesis.nTime = %u \n", genesis.nTime);
+        //    printf("genesis.nNonce = %u \n", genesis.nNonce);
+        //    printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str()); //first this, then comment this line out and uncomment the one under.
+        //    printf("genesis.hashMerkleRoot = %s \n", genesis.hashMerkleRoot.ToString().c_str()); //improvised. worked for me, to find merkle root
+
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0x4d252faa34639e64066da0a1fd891d8ea32825689596519e4cd426d49e5b7460"));
         assert(genesis.hashMerkleRoot == uint256("0x79669074fe3c38adc9bde2ada1dcb7645151b97e85c4512742ddecd370b24e39"));
 
+        vSeeds.push_back(CDNSSeedData("46.232.248.21", "46.232.248.21"));
         vSeeds.push_back(CDNSSeedData("172.16.1.44", "172.16.1.44"));
         vSeeds.push_back(CDNSSeedData("172.16.1.11", "172.16.1.11"));
         vSeeds.push_back(CDNSSeedData("172.16.1.75", "172.16.1.75"));
