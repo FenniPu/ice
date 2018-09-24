@@ -54,9 +54,12 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("0x4d252faa34639e64066da0a1fd891d8ea32825689596519e4cd426d49e5b7460")); //gen block  // hier einfügen
-//    (50, uint256()) // hier einfügen
-//    (100, uint256()) // hier einfügen
+    (0, uint256("0x4d252faa34639e64066da0a1fd891d8ea32825689596519e4cd426d49e5b7460")) //gen block  // hier einfügen
+    (1, uint256("0x00000bb1d7890572aee4ae489aac8831744771385ef1a0272f06e7e5e3e03595"))
+    (2, uint256("0x00000f932b1aee0133cf236136a313b76fe9811f5d9c94bfaf7eeaf930a9638d"))
+    (3, uint256("0x00000b1981f5129ec75b742aa4e0f4b784c7d971cc52fd81524b17e3b755b545"))
+    (50, uint256("0x000000385e67964339b7a8a920608b6891346e375ce9759724c88dd54678cfd4"))
+    (100, uint256("0x0000001433d747416759f43661c4ba045073e53fb8377499d1d2c4486ea8674d"));
 //    (300, uint256()) // hier einfügen
 //    (301, uint256()) // hier einfügen
 //  (254, uint256("0x0000001468b048b5f3801f107475691e87a546cdb8a2313391ef54979850d8df"))  //  zur ansicht
@@ -143,9 +146,9 @@ public:
         nMaxMoneyOut = 88000000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 100;
+        nLastPOWBlock = 200;
         nModifierUpdateBlock = 999999999;
-        nZerocoinStartHeight = 101;
+        nZerocoinStartHeight = 201;
         nZerocoinStartTime = 1537516800; // Mittwoch, 19 September, 2018 14:00:00
         nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
         nBlockRecalculateAccumulators = ~1; //Trigger a recalculation of accumulators
