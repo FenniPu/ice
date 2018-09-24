@@ -143,9 +143,9 @@ public:
         nMaxMoneyOut = 88000000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 300;
+        nLastPOWBlock = 100;
         nModifierUpdateBlock = 999999999;
-        nZerocoinStartHeight = 301;
+        nZerocoinStartHeight = 101;
         nZerocoinStartTime = 1537516800; // Mittwoch, 19 September, 2018 14:00:00
         nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
         nBlockRecalculateAccumulators = ~1; //Trigger a recalculation of accumulators
@@ -154,8 +154,8 @@ public:
         nBlockEnforceInvalidUTXO = 1; // Start enforcing the invalid UTXO's
         nInvalidAmountFiltered = 268200*COIN; //Amount of invalid coins filtered through exchanges, that should be considered valid
         nBlockZerocoinV2 = 99999999; //!> The block that zerocoin v2 becomes active - roughly Tuesday, May 8, 2018 4:00:00 AM GMT
-        nEnforceNewSporkKey = 1529762400; //!> Sporks signed after (GMT):Saturday, June 23, 2018 2:00:00 PM GMT must use the new spork key
-        nRejectOldSporkKey = 1529661600; //!> Fully reject old spork key after (GMT):  Friday, June 22, 2018 10:00:00 AM
+        nEnforceNewSporkKey = 1575154900; //!> Sporks signed after (GMT):Saturday, June 23, 2018 2:00:00 PM GMT must use the new spork key
+        nRejectOldSporkKey = 1575154800; //!> Fully reject old spork key after (GMT):  Friday, June 22, 2018 10:00:00 AM
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -219,7 +219,7 @@ public:
         nPoolMaxTransactions = 3;
         strSporkKey = "04B433E6598390C992F4F022F20D3B4CBBE691652EE7C48243B81701CBDB7CC7D7BF0EE09E154E6FCBF2043D65AF4E9E97B89B5DBAF830D83B9B7F469A6C45A717";
         strSporkKeyOld = "04B433E6598390C992F4F022F20D3B4CBBE691652EE7C48243B81701CBDB7CC7D7BF0EE09E154E6FCBF2043D65AF4E9E97B89B5DBAF830D83B9B7F469A6C45A717";
-        strObfuscationPoolDummyAddress = "d87q2gC9j6nNrnzCsg4aY6bHMLsT9nUhEw";
+        strObfuscationPoolDummyAddress = "ShsxgHcyYHYAtDxPp1RH7kTwWTNDBfx2FG";
         nStartMasternodePayments = 1537516800; //Saturday, June 23, 2018 8:00:00 PM GMT
 
         /** Zerocoin */
