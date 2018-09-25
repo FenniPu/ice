@@ -6,7 +6,7 @@ Rekel is an open source crypto-currency focused on fast private transactions wit
 - Fast transactions featuring guaranteed zero confirmation transactions.
 - Decentralized blockchain voting utilizing Masternode technology to form a DAO. The blockchain will distribute monthly treasury funds based on successful proposals submitted by the community and voted on by the DAO.
 
-More information at [deviantcoin.io](http://www.deviantcoin.io) Visit our ANN thread at [BitcoinTalk](https://bitcointalk.org/index.php?topic=4555585.0)
+More information at [coin.io](http://www.coin.io) Visit our ANN thread at [BitcoinTalk](https://bitcointalk.org/)
 
 ### Coin Specs
 <table>
