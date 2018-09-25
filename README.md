@@ -13,11 +13,11 @@ More information at [deviantcoin.io](http://www.deviantcoin.io) Visit our ANN th
 <tr><td>Algo</td><td>Quark</td></tr>
 <tr><td>Block Time</td><td>60 Seconds</td></tr>
 <tr><td>Difficulty Retargeting</td><td>Every Block</td></tr>
-<tr><td>Max Coin Supply (PoW Phase)</td><td>4,100,000 RKL</td></tr>
-<tr><td>Max Coin Supply (PoS Phase)</td><td>88,000,000 RKL</td></tr>
-<tr><td>Premine</td><td>4,100,000 RKL*</td></tr>
+<tr><td>Max Coin Supply (PoW Phase)</td><td>4,050,000 RKL</td></tr>
+<tr><td>Max Coin Supply (PoS Phase)</td><td>80,000,000 RKL</td></tr>
+<tr><td>Premine</td><td>4,050,000 RKL*</td></tr>
 <tr><td>Block Halving</td><td>-18% / Year</td></tr>
-<tr><td>Coins Burned</td><td>880,000 RKL*</td></tr>
+<tr><td>Coins Burned</td><td>--- RKL*</td></tr>
 
 </table>
 
