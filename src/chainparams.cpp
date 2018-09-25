@@ -60,10 +60,8 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
     (3, uint256("0x00000b1981f5129ec75b742aa4e0f4b784c7d971cc52fd81524b17e3b755b545"))
     (50, uint256("0x000000385e67964339b7a8a920608b6891346e375ce9759724c88dd54678cfd4"))
     (100, uint256("0x0000001433d747416759f43661c4ba045073e53fb8377499d1d2c4486ea8674d"));
-//    (300, uint256()) // hier einfügen
-//    (301, uint256()) // hier einfügen
-//  (254, uint256("0x0000001468b048b5f3801f107475691e87a546cdb8a2313391ef54979850d8df"))  //  zur ansicht
-//    (500, uint256()); // hier einfügen
+//    (300, uint256())
+//    (301, uint256());
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
@@ -130,7 +128,7 @@ public:
         pchMessageStart[2] = 0xda;
         pchMessageStart[3] = 0xb4;
 
-        vAlertPubKey = ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f");
+        vAlertPubKey = ParseHex("04b806a56e40fa8077145a51a9adbce931bfd5c9218ff6b36c9703e888c0e5a4af124ecc116eac2590211562c095cae0fabac4872e9af743de603cc15c798de8c3");
         nDefaultPort = 33648;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Deviant starting difficulty is 1 / 2^12
         //nSubsidyHalvingInterval = 210000;
@@ -146,10 +144,10 @@ public:
         nMaxMoneyOut = 88000000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 200;
+        nLastPOWBlock = 300;
         nModifierUpdateBlock = 999999999;
-        nZerocoinStartHeight = 201;
-        nZerocoinStartTime = 1537516800; // Mittwoch, 19 September, 2018 14:00:00
+        nZerocoinStartHeight = 301;
+        nZerocoinStartTime = 1537862400; // Dienstag, 25 September, 2018 10:00:00
         nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
         nBlockRecalculateAccumulators = ~1; //Trigger a recalculation of accumulators
         nBlockFirstFraudulent = ~1; //First block that bad serials emerged
@@ -170,39 +168,40 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "Hunderte Millionen Menschen werden zu 'nutzloser Klasse";
+        const char* pszTimestamp = "Hunderte Millionen Menschen werden zu 'nutzloser Klasse. Rekel is Born :-) 25-09-2018";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         txNew.vout[0].nValue = 250 * COIN;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex("0427dc85a634e4fd6cdaaf937f93889dbae5e71fae2d2ccc7e30fd4020dff14be8b504788651bad453be1620f26ce75d5c8c10634824f3553692d1ab998a323155") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1537516800;
+        genesis.nTime = 1537862400; // Dienstag, 25 September, 2018 10:00:00
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 1154317;
 
-        //    printf("genesis.nTime = %u \n", genesis.nTime);
-        //    printf("genesis.nNonce = %u \n", genesis.nNonce);
-        //    printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str()); //first this, then comment this line out and uncomment the one under.
-        //    printf("genesis.hashMerkleRoot = %s \n", genesis.hashMerkleRoot.ToString().c_str()); //improvised. worked for me, to find merkle root
+            printf("genesis.nTime = %u \n", genesis.nTime);
+            printf("genesis.nNonce = %u \n", genesis.nNonce);
+            printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str()); //first this, then comment this line out and uncomment the one under.
+            printf("genesis.hashMerkleRoot = %s \n", genesis.hashMerkleRoot.ToString().c_str()); //improvised. worked for me, to find merkle root
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x4d252faa34639e64066da0a1fd891d8ea32825689596519e4cd426d49e5b7460"));
-        assert(genesis.hashMerkleRoot == uint256("0x79669074fe3c38adc9bde2ada1dcb7645151b97e85c4512742ddecd370b24e39"));
+        assert(hashGenesisBlock == uint256("0x"));
+        assert(genesis.hashMerkleRoot == uint256("0x"));
 
         vSeeds.push_back(CDNSSeedData("46.232.248.21", "46.232.248.21"));
+        vSeeds.push_back(CDNSSeedData("37.221.192.88", "37.221.192.88"));
         vSeeds.push_back(CDNSSeedData("172.16.1.44", "172.16.1.44"));
         vSeeds.push_back(CDNSSeedData("172.16.1.11", "172.16.1.11"));
         vSeeds.push_back(CDNSSeedData("172.16.1.75", "172.16.1.75"));
 	      vSeeds.push_back(CDNSSeedData("172.16.1.52", "172.16.1.52"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 63);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 10);
-        base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 137);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 60);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 18);
+        base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 140);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x4D)(0x50)(0x66).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x41)(0x51)(0x4B).convert_to_container<std::vector<unsigned char> >();
         // 	BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
@@ -220,10 +219,10 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "04B433E6598390C992F4F022F20D3B4CBBE691652EE7C48243B81701CBDB7CC7D7BF0EE09E154E6FCBF2043D65AF4E9E97B89B5DBAF830D83B9B7F469A6C45A717";
-        strSporkKeyOld = "04B433E6598390C992F4F022F20D3B4CBBE691652EE7C48243B81701CBDB7CC7D7BF0EE09E154E6FCBF2043D65AF4E9E97B89B5DBAF830D83B9B7F469A6C45A717";
+        strSporkKey = "0490f02f16b4a5613b4eeb33693ac5a6d2ccca97e3b965c3bb5557f01cfa1bac55c85665369f38ef415c0b9a4e391183c5bb6e65eba2fc34b90d33ca7d142242e6";
+        strSporkKeyOld = "0490f02f16b4a5613b4eeb33693ac5a6d2ccca97e3b965c3bb5557f01cfa1bac55c85665369f38ef415c0b9a4e391183c5bb6e65eba2fc34b90d33ca7d142242e6";
         strObfuscationPoolDummyAddress = "ShsxgHcyYHYAtDxPp1RH7kTwWTNDBfx2FG";
-        nStartMasternodePayments = 1537516800; //Saturday, June 23, 2018 8:00:00 PM GMT
+        nStartMasternodePayments = 1537862400; // Dienstag, 25 September, 2018 10:00:00
 
         /** Zerocoin */
         zerocoinModulus = "25195908475657893494027183240048398571429282126204032027777137836043662020707595556264018525880784"
