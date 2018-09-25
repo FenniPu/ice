@@ -63,13 +63,15 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
 //    (300, uint256())
 //    (301, uint256());
 
-static const Checkpoints::CCheckpointData data = {
-    &mapCheckpoints,
-    1537787181, // * UNIX timestamp of last checkpoint block
-    1,    // * total number of transactions between genesis and last checkpoint
-                //   (the tx=... number in the SetBestChain debug.log lines)
-    10000        // * estimated number of transactions per day after checkpoint
-};
+static const Checkpoints::CCheckpointData data = {};
+
+//static const Checkpoints::CCheckpointData data = {
+//    &mapCheckpoints,
+//    1537787181, // * UNIX timestamp of last checkpoint block
+//    1,    // * total number of transactions between genesis and last checkpoint
+//                //   (the tx=... number in the SetBestChain debug.log lines)
+//    10000        // * estimated number of transactions per day after checkpoint
+//};
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of(0, uint256("0000014bd7a053eb417c79a53bf206733927fab837ad1a5e06265b21f8d9e9e8"));
@@ -116,17 +118,12 @@ public:
          * The message start string is designed to be unlikely to occur in normal data.
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
-
-        * pchMessageStart[0] = 0x28;
-        * pchMessageStart[1] = 0xb4;
-        * pchMessageStart[2] = 0xad;
-        * pchMessageStart[3] = 0xb8;
         */
 
-        pchMessageStart[0] = 0x29;
-        pchMessageStart[1] = 0xb3;
-        pchMessageStart[2] = 0xda;
-        pchMessageStart[3] = 0xb4;
+        pchMessageStart[0] = 0x46;
+        pchMessageStart[1] = 0xC0;
+        pchMessageStart[2] = 0xF0;
+        pchMessageStart[3] = 0x63;
 
         vAlertPubKey = ParseHex("04b806a56e40fa8077145a51a9adbce931bfd5c9218ff6b36c9703e888c0e5a4af124ecc116eac2590211562c095cae0fabac4872e9af743de603cc15c798de8c3");
         nDefaultPort = 33648;
@@ -183,14 +180,14 @@ public:
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 1154317;
 
-            printf("genesis.nTime = %u \n", genesis.nTime);
-            printf("genesis.nNonce = %u \n", genesis.nNonce);
-            printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str()); //first this, then comment this line out and uncomment the one under.
-            printf("genesis.hashMerkleRoot = %s \n", genesis.hashMerkleRoot.ToString().c_str()); //improvised. worked for me, to find merkle root
+        //    printf("genesis.nTime = %u \n", genesis.nTime);
+        //    printf("genesis.nNonce = %u \n", genesis.nNonce);
+        //    printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str()); //first this, then comment this line out and uncomment the one under.
+        //    printf("genesis.hashMerkleRoot = %s \n", genesis.hashMerkleRoot.ToString().c_str()); //improvised. worked for me, to find merkle root
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x"));
-        assert(genesis.hashMerkleRoot == uint256("0x"));
+        assert(hashGenesisBlock == uint256("0xe595edb39ffce2e1c7be92eb86bc380a016d1ddea97f05a671f9b9ffe181afea"));
+        assert(genesis.hashMerkleRoot == uint256("0xd47c7cfd16ba253f38b1d570ffc4ae54a5431e60d14b678274f6fdfe4a81ac8b"));
 
         vSeeds.push_back(CDNSSeedData("46.232.248.21", "46.232.248.21"));
         vSeeds.push_back(CDNSSeedData("37.221.192.88", "37.221.192.88"));
@@ -259,9 +256,9 @@ public:
     {
         networkID = CBaseChainParams::TESTNET;
         strNetworkID = "test";
-        pchMessageStart[0] = 0x50;
+        pchMessageStart[0] = 0x63;
         pchMessageStart[1] = 0x79;
-        pchMessageStart[2] = 0x55;
+        pchMessageStart[2] = 0x8C;
         pchMessageStart[3] = 0xcd;
         vAlertPubKey = ParseHex("000010e83b2703ccf322f7dbd62dd5855ac7c10bd055814ce121ba32607d573b8810c02c0582aed05b4deb9c4b77b26d92428c61256cd42774babea0a073b2ed0c9");
         nDefaultPort = 51484;
